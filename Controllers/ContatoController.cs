@@ -57,5 +57,11 @@ namespace TrabalhandoComEntity.Controllers
             _context.SaveChanges();
             return NoContent();
         }
+        [HttpGet("ObterPorNome")]
+        public IActionResult ObterPorNome(string nome)
+        {
+            var contatos = _context.Contatos.Where(x => x.Nome.Contains(nome));
+            return Ok(contatos);
+        }
     }
 }
